@@ -11,6 +11,7 @@ import ru.ctddev.ifmo.filippov.twitter.twitter.TwitterClient;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -45,10 +46,17 @@ public class TwitterStatisticsManagerTest {
     }
 
     private List<Tweet> createAnswer() {
+        long currentTime = System.currentTimeMillis();
+        /*
+        new Tweet("Aggressive Ponytail #freebandnames", "Fri Oct 15 10:35:40 MSK 2016"),
+        new Tweet("Thee Namaste Nerdz. #FreeBandNames", "Fri Oct 15 8:35:40 MSK 2016"),
+        new Tweet("Mexican Heaven, Mexican Hell #freebandnames", "Fri Oct 15 03:35:40 MSK 2016")
+        */
+        int HOUR_IN_MILLISECONDS = 60 * 60 * 1000;
         return Arrays.asList(
-                new Tweet("Aggressive Ponytail #freebandnames", "Fri Oct 14 18:02:58 MSK 2016"),
-                new Tweet("Thee Namaste Nerdz. #FreeBandNames", "Fri Oct 14 16:17:40 MSK 2016"),
-                new Tweet("Mexican Heaven, Mexican Hell #freebandnames", "Fri Oct 14 10:30:20 MSK 2016")
+                new Tweet("Aggressive Ponytail #freebandnames", new Date(currentTime - HOUR_IN_MILLISECONDS + 500).toString()),
+                new Tweet("Thee Namaste Nerdz. #FreeBandNames", new Date(currentTime - HOUR_IN_MILLISECONDS * 2).toString()),
+                new Tweet("Mexican Heaven, Mexican Hell #freebandnames", new Date(currentTime - HOUR_IN_MILLISECONDS * 5 - 1).toString())
         );
     }
 }

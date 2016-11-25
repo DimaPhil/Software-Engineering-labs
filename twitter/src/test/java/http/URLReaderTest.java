@@ -9,7 +9,7 @@ import ru.ctddev.ifmo.filippov.twitter.rule.HostReachableRule;
 /**
  * Created by dmitry on 08.10.16.
  */
-@HostReachableRule.HostReachable("api.twitter.com")
+//@HostReachableRule.HostReachable("api.twitter.com")
 public class URLReaderTest {
 
     @ClassRule

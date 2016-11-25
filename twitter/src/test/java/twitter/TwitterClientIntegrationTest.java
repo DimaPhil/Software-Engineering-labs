@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by dmitry on 08.10.16.
  */
-@HostReachableRule.HostReachable(TwitterClientIntegrationTest.HOST)
+//@HostReachableRule.HostReachable(TwitterClientIntegrationTest.HOST)
 public class TwitterClientIntegrationTest {
     static final String HOST = "api.twitter.com";
     private final ResponseParser parser = new ResponseParser();
