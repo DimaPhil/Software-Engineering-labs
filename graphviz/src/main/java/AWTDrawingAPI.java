@@ -52,9 +52,9 @@ class AWTDrawingAPI extends JFrame implements DrawingAPI {
     private List<Circle> circles;
     private List<Line> lines;
 
-    public AWTDrawingAPI() {
+    AWTDrawingAPI(int width, int height) {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(width, height);
         setVisible(false);
         circles = new ArrayList<>();
         lines = new ArrayList<>();
@@ -79,15 +79,21 @@ class AWTDrawingAPI extends JFrame implements DrawingAPI {
         }
     }
 
+    @Override
     public void drawCircle(int x, int y, int r) {
         setVisible(true);
         circles.add(new Circle(x, y, r));
         repaint();
     }
 
+    @Override
     public void drawLine(int x1, int y1, int x2, int y2) {
         setVisible(true);
         lines.add(new Line(x1, y1, x2, y2));
         repaint();
+    }
+
+    @Override
+    public void finishDrawing() {
     }
 }

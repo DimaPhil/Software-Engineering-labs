@@ -66,18 +66,6 @@ class ParseVisitor implements TokenVisitor {
         stack.push(token);
     }
 
-    private void visit(Token token) {
-        if (token instanceof Operation) {
-            visit((Operation) token);
-        }
-        if (token instanceof Brace) {
-            visit((Brace) token);
-        }
-        if (token instanceof NumberToken) {
-            visit((NumberToken) token);
-        }
-    }
-
     private void finish() {
         while (!stack.isEmpty()) {
             Token token = stack.peek();
@@ -91,7 +79,7 @@ class ParseVisitor implements TokenVisitor {
 
     List<Token> getPolish(List<Token> tokens) {
         for (Token token : tokens) {
-            visit(token);
+            token.accept(this);
         }
         finish();
         return polish;

@@ -50,5 +50,6 @@ class MatrixGraph extends Graph {
                 drawEdge(x[i], y[i], x[j], y[j]);
             }
         }
+        drawingAPI.finishDrawing();
     }
 }

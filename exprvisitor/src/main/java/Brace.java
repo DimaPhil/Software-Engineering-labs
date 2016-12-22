@@ -11,4 +11,9 @@ class Brace implements Token {
     char getBrace() {
         return brace;
     }
+
+    @Override
+    public void accept(TokenVisitor visitor) {
+        visitor.visit(this);
+    }
 }

@@ -11,9 +11,9 @@ public class Main {
         List<String> arguments = new ArrayList<>(Arrays.asList(args));
         DrawingAPI api;
         if (arguments.contains("javafx")) {
-            api = new JavaFxDrawingAPI();
+            api = new JavaFxDrawingAPI(600, 400);
         } else {
-            api = new AWTDrawingAPI();
+            api = new AWTDrawingAPI(600, 400);
         }
         Graph graph;
         if (arguments.contains("matrix")) {

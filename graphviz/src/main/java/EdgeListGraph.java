@@ -62,5 +62,6 @@ class EdgeListGraph extends Graph {
                 drawEdge(x[v], y[v], x[u], y[u]);
             }
         }
+        drawingAPI.finishDrawing();
     }
 }

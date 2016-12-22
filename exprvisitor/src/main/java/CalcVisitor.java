@@ -39,21 +39,9 @@ class CalcVisitor implements TokenVisitor {
         }
     }
 
-    private void visit(Token token) {
-        if (token instanceof Operation) {
-            visit((Operation) token);
-        }
-        if (token instanceof Brace) {
-            visit((Brace) token);
-        }
-        if (token instanceof NumberToken) {
-            visit((NumberToken) token);
-        }
-    }
-
     int calculate(List<Token> tokens) {
         for (Token token : tokens) {
-            visit(token);
+            token.accept(this);
         }
         return ((NumberToken) stack.peek()).getNumber();
     }

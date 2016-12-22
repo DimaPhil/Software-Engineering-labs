@@ -11,7 +11,6 @@ public class Main {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             String expression = reader.readLine();
             List<Token> tokens = new Tokenizer().tokenize(expression);
-            new PrintVisitor().print(tokens);
             List<Token> polish = new ParseVisitor().getPolish(tokens);
             new PrintVisitor().print(polish);
             System.out.println(new CalcVisitor().calculate(polish));

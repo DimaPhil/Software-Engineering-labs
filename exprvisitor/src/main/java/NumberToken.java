@@ -11,4 +11,9 @@ class NumberToken implements Token {
     int getNumber() {
         return number;
     }
+
+    @Override
+    public void accept(TokenVisitor visitor) {
+        visitor.visit(this);
+    }
 }

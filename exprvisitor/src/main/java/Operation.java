@@ -11,4 +11,9 @@ class Operation implements Token {
     char getOperation() {
         return operation;
     }
+
+    @Override
+    public void accept(TokenVisitor visitor) {
+        visitor.visit(this);
+    }
 }

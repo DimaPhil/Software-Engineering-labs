@@ -36,21 +36,9 @@ class PrintVisitor implements TokenVisitor {
         }
     }
 
-    private void visit(Token token) {
-        if (token instanceof Operation) {
-            visit((Operation) token);
-        }
-        if (token instanceof Brace) {
-            visit((Brace) token);
-        }
-        if (token instanceof NumberToken) {
-            visit((NumberToken) token);
-        }
-    }
-
     void print(List<Token> tokens) {
         for (Token token : tokens) {
-            visit(token);
+            token.accept(this);
         }
         System.out.println(String.join(" ", output));
     }
